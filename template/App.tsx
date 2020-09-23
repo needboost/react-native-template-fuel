@@ -26,6 +26,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import RNBootSplash from 'react-native-bootsplash';
+import {ThemeProvider} from '@shopify/restyle';
+import {theme, Text as ThemeText, Box} from './app/theme';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -35,7 +37,7 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <ThemeProvider {...{theme}}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -50,7 +52,13 @@ const App = () => {
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
-              <Text>Welcome to fuel template</Text>
+              <Box
+                marginVertical="xl"
+                backgroundColor="primary"
+                padding="m"
+                borderRadius="xl">
+                <ThemeText variant="hero">Welcome to Fuel</ThemeText>
+              </Box>
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.tsx</Text> to change
                 this screen and then come back to see your edits.
@@ -78,7 +86,7 @@ const App = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
+    </ThemeProvider>
   );
 };
 

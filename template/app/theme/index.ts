@@ -1,4 +1,4 @@
-import {createText, createBox, useTheme} from '@shopify/restyle';
+import {createText, createBox} from '@shopify/restyle';
 
 const palette = {
   primary: '#000',
@@ -33,6 +33,11 @@ export const theme = {
       textAlign: 'center',
       fontWeight: '800',
       color: 'danger',
+    },
+    default: {
+      fontSize: 16,
+      color: 'primary',
+      textAlign: 'center',
     },
   },
 };
